@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TROPA PACE</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #0a0e1a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      color: #e8eaf0;
+      padding: 2rem 1rem;
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .logo span {
+      color: #4fc3f7;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: #7986a3;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .cards {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .card {
+      flex: 1 1 220px;
+      text-decoration: none;
+      background: #131929;
+      border: 1px solid #1e2a40;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      border-color: #4fc3f7;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(79, 195, 247, 0.12);
+    }
+
+    .card-icon {
+      font-size: 2.8rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .card-desc {
+      font-size: 0.78rem;
+      color: #7986a3;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    .card-btn {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1.4rem;
+      border-radius: 8px;
+      background: #4fc3f7;
+      color: #0a0e1a;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .card:hover .card-btn {
+      background: #81d4fa;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      font-size: 0.7rem;
+      color: #3a4560;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">TROPA <span>PACE</span></div>
+  <div class="subtitle">Avaliação de Aptidão Física</div>
+
+  <div class="cards">
+    <a class="card" href="aluno.html">
+      <div class="card-icon">🎓</div>
+      <div class="card-title">Aluno</div>
+      <div class="card-desc">Turmas de formação e cursos militares</div>
+      <div class="card-btn">Acessar</div>
+    </a>
+
+    <a class="card" href="tripulacao.html">
+      <div class="card-icon">⚓</div>
+      <div class="card-title">Tripulação</div>
+      <div class="card-desc">Militares da ativa e reserva naval</div>
+      <div class="card-btn">Acessar</div>
+    </a>
+  </div>
+
+  <footer>TROPA PACE · Marinha do Brasil</footer>
+
+</body>
+</html>
