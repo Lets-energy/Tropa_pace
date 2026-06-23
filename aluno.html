@@ -3054,7 +3054,7 @@ rows.push(['#'+r.seqNum, JSON.stringify(r.nip||''), JSON.stringify(r.label||''),
     }
 
     // ======= Modal Tabela de Notas =======
-    let modalTab='gola', modalSex='M';
+    let modalTab='aluno', modalSex='M';
 
     function fmtSecs(s){ const m=Math.floor(s/60); const ss=s%60; return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0'); }
 
@@ -3125,10 +3125,11 @@ rows.push(['#'+r.seqNum, JSON.stringify(r.nip||''), JSON.stringify(r.label||''),
       modalTab=tab;
       const colors = {gola:'#0f766e', naval:'#7c3aed', aluno:'#ea580c', 'gola-caminhada':'#15803d'};
       document.querySelectorAll('.modal-tab-btn').forEach(b=>{
+        if(b.style.display==='none') return; // ignorar botões ocultos
         const _idMap={gola:'modalTabGola',naval:'modalTabNaval',aluno:'modalTabAluno','gola-caminhada':'modalTabGolaCaminhada'};
         const isActive = b.id===(_idMap[tab]||'');
-        b.style.background = isActive ? (colors[tab]||'#17a876') : '#334155';
-        b.style.color = isActive ? '#fff' : '#94a3b8';
+        b.style.background = isActive ? (colors[tab]||'#17a876') : '#e8edf3';
+        b.style.color = isActive ? '#fff' : '#4a7a9b';
       });
       renderScoreModal();
     }
