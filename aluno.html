@@ -996,15 +996,23 @@
             <button class="btnDnf rounded-xl font-bold text-lg" style="min-width:40px;min-height:52px;padding:0 10px;background:#fff0f0;color:#d04040;border:1px solid #f0b8b8" title="Registrar desistência">✕</button>
           </div>
         </div>
-        <div class="flex items-center gap-3 text-xs text-black border-t border-slate-300/40 pt-1">
-          <span class="runner-info-nip font-mono"></span>
-          <span class="runner-info-sex font-bold" style="font-size:1rem;"></span>
-          <span class="runner-info-age"></span>
-          <span class="runner-tab-badge text-xs font-semibold rounded px-2 py-0.5 align-middle"></span>
-          <span class="runner-score font-bold text-base text-slate-700 ml-auto"></span>
-          <span class="runner-seq-num-copy text-xs font-bold" style="border-radius:6px;padding:1px 7px;color:#fff;"></span>
+        <!-- Barra de detalhes recolhível (NIP / sexo / idade / badge / projeção) -->
+        <button type="button" class="runner-details-toggle" aria-expanded="false"
+          style="display:flex;align-items:center;gap:6px;width:100%;background:none;border:none;border-top:1px solid rgba(203,213,225,0.55);padding:6px 0 2px;margin-top:2px;cursor:pointer;color:#64748b;font-size:.72rem;font-weight:600">
+          <span class="runner-details-chevron" style="display:inline-block;transition:transform .22s;font-size:.85rem">▸</span>
+          <span>Detalhes</span>
+          <span class="runner-score font-bold text-sm ml-auto" style="color:#334155"></span>
+        </button>
+        <div class="runner-details" style="display:none">
+          <div class="flex items-center gap-3 text-xs text-black pt-1">
+            <span class="runner-info-nip font-mono"></span>
+            <span class="runner-info-sex font-bold" style="font-size:1rem;"></span>
+            <span class="runner-info-age"></span>
+            <span class="runner-tab-badge text-xs font-semibold rounded px-2 py-0.5 align-middle"></span>
+            <span class="runner-seq-num-copy text-xs font-bold ml-auto" style="border-radius:6px;padding:1px 7px;color:#fff;"></span>
+          </div>
+          <div class="runner-projection text-xs text-center rounded-lg py-1 hidden" style="background:rgba(0,0,0,0.08);margin-top:6px"></div>
         </div>
-        <div class="runner-projection text-xs text-center rounded-lg py-1 hidden" style="background:rgba(0,0,0,0.08)"></div>
       </div>
     </div>
   </template>
@@ -2629,6 +2637,20 @@
       const btnUndo=cardEl.querySelector('.btnUndo');
       const btnDnf=cardEl.querySelector('.btnDnf');
       const lapsCountEl=cardEl.querySelector('.lapsCount');
+
+      // Toggle "Detalhes": recolhe NIP/sexo/idade/badge/projeção por padrão,
+      // exibindo só número, nome, botões e voltas. A setinha revela o resto.
+      const detToggle=cardEl.querySelector('.runner-details-toggle');
+      const detBody=cardEl.querySelector('.runner-details');
+      const detChev=cardEl.querySelector('.runner-details-chevron');
+      if(detToggle && detBody){
+        detToggle.addEventListener('click',()=>{
+          const open=detBody.style.display!=='none';
+          detBody.style.display=open?'none':'block';
+          detToggle.setAttribute('aria-expanded',String(!open));
+          if(detChev) detChev.style.transform=open?'rotate(0deg)':'rotate(90deg)';
+        });
+      }
 
       attachDnD(cardEl,nipKey);
 
